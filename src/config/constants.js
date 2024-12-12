@@ -1,4 +1,4 @@
-export const SITE_URL = "https://core.dezert.io";
+export const SITE_URL = "https://mychannels-mu.vercel.app";
 export const SITE_NAME = "دليل تلغرام";
 export const SITE_DESCRIPTION =
   "دليلك الشامل لأفضل قنوات وبوتات تلغرام العربية";

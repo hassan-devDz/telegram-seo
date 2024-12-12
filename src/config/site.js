@@ -1,6 +1,6 @@
 export const siteConfig = {
   // معلومات الموقع الأساسية
-  url: "https://core.dezert.io",
+  url: "https://mychannels-mu.vercel.app",
   name: "دليل تلغرام",
   description: "دليلك الشامل لأفضل قنوات وبوتات تلغرام العربية",
 

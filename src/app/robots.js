@@ -6,6 +6,6 @@ export default function robots() {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://core.dezert.io/sitemap.xml",
+    sitemap: "https://mychannels-mu.vercel.app/sitemap.xml",
   };
 }

@@ -1,6 +1,6 @@
 // src/app/sitemap.js
 export default async function sitemap() {
-  const baseUrl = "https://core.dezert.io";
+  const baseUrl = "https://mychannels-mu.vercel.app";
 
   // احصل على قائمة القنوات من قاعدة البيانات أو API
   const channels = [
