@@ -1,11 +1,22 @@
-// src/app/robots.js
+import { siteConfig } from "@/config/site";
+
 export default function robots() {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: "/private/",
-    },
-    sitemap: "https://mychannels-mu.vercel.app/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: ["/", "/channels/*", "/bots/*"],
+        disallow: [
+          "/private/",
+          "/api/*",
+          "/admin/*",
+          "/*.json$",
+          "/tmp/",
+          "/draft/*",
+        ],
+      },
+    ],
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

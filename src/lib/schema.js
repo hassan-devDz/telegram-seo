@@ -38,3 +38,35 @@ export function generateSchema(type, data) {
 
   return schema;
 }
+// src/lib/schema.js
+export function generateBreadcrumbSchema(type, data) {
+  const typeMap = {
+    channel: { name: 'القنوات', path: 'channels' },
+    bot: { name: 'البوتات', path: 'bots' }
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": siteConfig.url
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": typeMap[type]?.name || type,
+        "item": `${siteConfig.url}/${typeMap[type]?.path || type}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": data.title,
+        "item": `${siteConfig.url}/${type}/${data.username}`
+      }
+    ]
+  };
+}

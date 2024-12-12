@@ -11,7 +11,7 @@ export default function Footer() {
       animate={{ opacity: 1 }}
       className="py-8 mt-16 border-t border-gray-200"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[1280px]">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="text-sm text-gray-600">
             © {new Date().getFullYear()} {siteConfig.name}. جميع الحقوق محفوظة

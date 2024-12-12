@@ -1,27 +1,39 @@
 // src/app/sitemap.js
+
+// src/app/sitemap.js
+import { getAllChannels } from '@/data/channels';
+import { getAllBots } from '@/data/bots';
+
+import { siteConfig } from "@/config/site";
+
 export default async function sitemap() {
-  const baseUrl = "https://mychannels-mu.vercel.app";
+  try {
+    const [channels, bots] = await Promise.all([
+      getAllChannels(),
+      getAllBots()
+    ]);
 
-  // احصل على قائمة القنوات من قاعدة البيانات أو API
-  const channels = [
-    { username: "channel1", updatedAt: new Date() },
-    // ... المزيد من القنوات
-  ];
+    const baseUrl = siteConfig.url;
 
-  const channelUrls = channels.map((channel) => ({
-    url: `${baseUrl}/channel/${channel.username}`,
-    lastModified: channel.updatedAt,
-    changeFrequency: "daily",
-    priority: 0.8,
-  }));
-
-  return [
-    {
-      url: baseUrl,
+    const generateUrls = (items, type) => items.map((item) => ({
+      url: `${baseUrl}/${type}/${item.username}`,
       lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    ...channelUrls,
-  ];
+      changeFrequency: 'daily',
+      priority: 0.8,
+    }));
+
+    return [
+      {
+        url: baseUrl,
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 1,
+      },
+      ...generateUrls(channels, 'channel'),
+      ...generateUrls(bots, 'bot')
+    ];
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+    return [];
+  }
 }

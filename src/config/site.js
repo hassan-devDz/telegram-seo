@@ -1,6 +1,6 @@
 export const siteConfig = {
   // معلومات الموقع الأساسية
-  url: "https://mychannels-mu.vercel.app",
+  url: "https://www.dzrt.shop",
   name: "دليل تلغرام",
   description: "دليلك الشامل لأفضل قنوات وبوتات تلغرام العربية",
 

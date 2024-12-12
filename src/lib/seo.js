@@ -5,7 +5,7 @@ export const createStructuredData = (type, data) => {
       "@type": "Organization",
       name: data.title,
       description: data.description,
-      url: `https://mychannels-mu.vercel.app/channel/${data.username}`,
+      url: `https://www.dzrt.shop/channel/${data.username}`,
       image: data.imageUrl,
       sameAs: [`https://t.me/${data.username}`],
     };
@@ -19,7 +19,7 @@ export const createStructuredData = (type, data) => {
       description: data.description,
       applicationCategory: "Messenger Bot",
       image: data.imageUrl,
-      url: `https://mychannels-mu.vercel.app/bot/${data.username}`,
+      url: `https://www.dzrt.shop/bot/${data.username}`,
       offers: {
         "@type": "Offer",
         price: "0",

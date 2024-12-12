@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={cairo.className}>
         <Navbar />
-        <main className="container mx-auto px-4 pt-24 pb-8">{children}</main>
+        <main className="container mx-auto px-4 pt-24 pb-8 max-w-[1280px]">{children}</main>
         <Footer />
         <Script
           strategy="afterInteractive"
