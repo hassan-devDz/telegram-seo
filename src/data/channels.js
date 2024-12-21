@@ -35,7 +35,7 @@ export const channels = [
     username: "freeDzert",
     title: "تنبيهات دزرت المجانية",
     description: "قناة تنبيهات دزرت المجانية حالة توفر منتجات دزرت",
-    imageUrl: "/freeDzert.jpg",
+    imageUrl: "/freeDzert1.jpg",
     memberCount: "2200+",
     category: "أخبار",
     isVerified: true,
