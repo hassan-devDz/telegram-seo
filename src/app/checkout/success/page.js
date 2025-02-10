@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { CheckCircle, ArrowLeft, MessageCircle } from 'lucide-react';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { CheckCircle, ArrowLeft, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function CheckoutSuccessPage() {
   return (
@@ -31,7 +31,8 @@ export default function CheckoutSuccessPage() {
           >
             <h1 className="text-3xl font-bold mb-4">تم الدفع بنجاح!</h1>
             <p className="text-gray-600 mb-8">
-              شكراً لك على الطلب. تم تفعيل خدمتك بنجاح ويمكنك البدء في استخدامها الآن.
+              شكراً لك على الطلب. تم تفعيل خدمتك بنجاح ويمكنك البدء في استخدامها
+              الآن.
             </p>
           </motion.div>
 
@@ -94,7 +95,7 @@ export default function CheckoutSuccessPage() {
             transition={{ delay: 0.6 }}
             className="mt-8 text-sm text-gray-500"
           >
-            إذا واجهتك أي مشكلة، يرجى التواصل مع{' '}
+            إذا واجهتك أي مشكلة، يرجى التواصل مع{" "}
             <a
               href="https://t.me/Tamer_Benhana"
               target="_blank"

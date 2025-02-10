@@ -1,20 +1,20 @@
 "use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useCart } from '@/context/CartContext';
-import { useRouter } from 'next/navigation';
-import { CreditCard, Shield, Lock, CheckCircle } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
+import { CreditCard, Shield, Lock, CheckCircle } from "lucide-react";
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { cart, getCartTotal, clearCart } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({
-    cardNumber: '',
-    cardName: '',
-    expiryDate: '',
-    cvv: ''
+    cardNumber: "",
+    cardName: "",
+    expiryDate: "",
+    cvv: "",
   });
 
   const subtotal = getCartTotal();
@@ -26,18 +26,18 @@ export default function CheckoutPage() {
     setIsProcessing(true);
 
     // محاكاة عملية الدفع
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // عند نجاح عملية الدفع
     clearCart();
-    router.push('/checkout/success');
+    router.push("/checkout/success");
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -52,7 +52,9 @@ export default function CheckoutPage() {
           {/* رأس الصفحة */}
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-3">إتمام الدفع</h1>
-            <p className="text-gray-600">أدخل تفاصيل البطاقة لإتمام عملية الشراء</p>
+            <p className="text-gray-600">
+              أدخل تفاصيل البطاقة لإتمام عملية الشراء
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -175,7 +177,9 @@ export default function CheckoutPage() {
                   <div className="border-t pt-4">
                     <div className="flex justify-between font-bold">
                       <span>الإجمالي</span>
-                      <span className="text-blue-600">{total.toFixed(2)} ريال</span>
+                      <span className="text-blue-600">
+                        {total.toFixed(2)} ريال
+                      </span>
                     </div>
                   </div>
                 </div>
