@@ -1,7 +1,7 @@
-export const SITE_URL = "https://www.dzrt.shop";
-export const SITE_NAME = "دليل تلغرام";
+export const SITE_URL = "https://www.freedzert.store/";
+export const SITE_NAME = "متجر حراء للخدمات الرقمية والبوتات";
 export const SITE_DESCRIPTION =
-  "دليلك الشامل لأفضل قنوات وبوتات تلغرام العربية";
+  "متجر البوتات الذكية والخدمات الرقمية الأول في العالم العربي";
 
 export const METADATA = {
   title: {
@@ -15,5 +15,16 @@ export const METADATA = {
     "بوتات تلغرام",
     "دليل تلغرام",
     "محتوى عربي",
+    "متجر حراء",
+    "حراء",
+    "البوتات الذكية",
+    "الخدمات الرقمية",
+    "العالم العربي",
+    "دزرت",
+    "تنبيهات دزرت",
+    "FreeDzert",
+    "متجر دزرت",
+    "خدمات تلغرام",
+    "الطلب التلقائي",
   ],
 };
