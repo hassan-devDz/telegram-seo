@@ -100,7 +100,7 @@ export const products = {
     ],
     features: ["إضافة تلقائية للسلة", "سرعة في الاستجابة", "دعم فني متواصل"],
   },
-  "auto-order": {
+  autoOrder: {
     id: "auto-order",
     name: "خدمة الطلب التلقائي",
     description: "طلب المنتجات تلقائياً عند توفرها",

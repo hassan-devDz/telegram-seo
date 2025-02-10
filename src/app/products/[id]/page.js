@@ -18,7 +18,7 @@
 //   const [addingToCart, setAddingToCart] = useState(false);
 //     const { id } = React.use(params);
 //     console.log(params, id, products[id]);
-    
+
 //   // محاكاة استرجاع بيانات المنتج حسب المعرف
 //   const product = products[params.id] || products.autoOrder; // مثال
 
@@ -244,16 +244,18 @@
 import ProductDetails from "./ProductDetails";
 import { products } from "@/config/site";
 import { notFound } from "next/navigation";
- import * as React from "react";
+import * as React from "react";
 
 // الصفحة الرئيسية - غير متزامنة
 export default async function ProductPage({ params }) {
-      const { id } = await params;
-  const product = products[id];
+  const { id } = await params;
 
   if (!product) {
     notFound();
   }
-
+  if (id === "auto-order") {
+    return <ProductDetails product={products.autoOrder} />;
+  }
+  const product = products[id];
   return <ProductDetails product={product} />;
 }
