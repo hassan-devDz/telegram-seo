@@ -248,14 +248,15 @@ import * as React from "react";
 
 // الصفحة الرئيسية - غير متزامنة
 export default async function ProductPage({ params }) {
-  const { id } = await params;
-
-  if (!product) {
-    notFound();
-  }
+  const { id } = await params; 
   if (id === "auto-order") {
     return <ProductDetails product={products.autoOrder} />;
   }
-  const product = products[id];
+const product = products[id];
+  if (!product) {
+    notFound();
+  }
+ 
+  
   return <ProductDetails product={product} />;
 }
