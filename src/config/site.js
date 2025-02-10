@@ -29,6 +29,7 @@ export const siteConfig = {
       { name: "من نحن", href: "/about" },
       { name: "المدونة", href: "/blog" },
       { name: "الأسئلة الشائعة", href: "/faq" },
+      { name: "التواصل", href: "/contact" },
     ],
   },
 };
@@ -99,7 +100,7 @@ export const products = {
     ],
     features: ["إضافة تلقائية للسلة", "سرعة في الاستجابة", "دعم فني متواصل"],
   },
-  autoOrder: {
+  "auto-order": {
     id: "auto-order",
     name: "خدمة الطلب التلقائي",
     description: "طلب المنتجات تلقائياً عند توفرها",
