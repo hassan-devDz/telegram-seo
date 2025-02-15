@@ -26,8 +26,12 @@ module.exports = {
           900: "#1E3A8A",
         },
       },
+      
       fontFamily: {
         sans: ["var(--font-cairo)", ...fontFamily.sans],
+      },
+      lineHeight: {
+        'h1': '2',
       },
       keyframes: {
         "fade-up": {

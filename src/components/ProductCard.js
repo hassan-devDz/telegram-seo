@@ -1,15 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingCart, ChevronLeft } from "lucide-react";
+import {  ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { useState, useEffect } from "react";
-
-export default function ProductCard({ product, plan }) {
+import {
+  Bell,
+  ShoppingCart,
+  Zap,
+  Sparkles,
+  Bot,
+  ArrowRight,
+  CheckCircle,
+  Shield,
+  Clock,
+  Users,
+  DollarSign,
+  Repeat,
+  Star,
+  Gift,
+} from "lucide-react";
+export default function ProductCard({ product, plan, isPopular }) {
   // تحريك التفاعلات خارج JSX الأساسي
   const { addToCart } = useCart();
   const [isClient, setIsClient] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -32,49 +48,63 @@ export default function ProductCard({ product, plan }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+      whileInView={{ opacity: 1, y: 0 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      //className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+      className={`relative overflow-hidden  rounded-2xl bg-white p-8 ${
+        isPopular
+          ? "ring-1 ring-blue-500  shadow-blue-200"
+          : "border border-gray-200"
+      } shadow-xl`}
     >
-      <Link href={`/products/${product.id}`} className="block">
-        <div className="p-6">
+      <div className="block ">
+        {/* شريط مميز للباقة المفضلة */}
+        {isPopular && (
+          <div className="absolute top-4 right-4">
+            <motion.div
+              className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1 rounded-full text-sm"
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>الأكثر طلباً</span>
+            </motion.div>
+          </div>
+        )}
+        <div className="p-1">
           {/* رأس المنتج */}
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              {product.name}
-              {plan && (
-                <span className="block text-sm text-gray-500 mt-1">
-                  {plan.name}
-                </span>
-              )}
-            </h3>
-            <div className="flex justify-center items-baseline mb-2">
-              <span className="text-3xl font-bold text-blue-600">
-                {plan ? plan.price : product.plans[0].price}
-              </span>
-              <span className="mr-2 text-gray-500">ريال</span>
-              {plan?.duration && (
-                <span className="mr-2 text-sm text-gray-500">
-                  / {plan.duration} يوم
-                </span>
-              )}
+
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+
+            <div className="text-4xl font-bold text-blue-600 mb-2">
+              {plan.price} <span className="text-lg text-gray-500">ريال</span>
             </div>
             <p className="text-sm text-gray-500">{product.description}</p>
           </div>
-
           {/* المميزات */}
-          <ul className="space-y-3 mb-6">
-            {product.features.slice(0, 3).map((feature, index) => (
-              <li
-                key={index}
-                className="flex items-center text-sm text-gray-600"
-              >
-                <span className="w-2 h-2 bg-blue-600 rounded-full ml-2"></span>
-                {feature}
+
+          <motion.ul
+            animate={{
+              height: isHovered ? "auto" : "100%",
+            }}
+            className="space-y-4 mb-8"
+          >
+            {product.features.map((feature, index) => (
+              <li key={index} className="flex items-center text-sm gap-3">
+                <CheckCircle
+                  className={`w-5 h-5 ${
+                    isHovered ? "text-blue-500" : "text-green-500"
+                  }`}
+                />
+                <span className="text-gray-600">{feature}</span>
               </li>
             ))}
-          </ul>
-
+          </motion.ul>
           {/* الأزرار */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-col xl:flex-row">
             {isClient && (
               <button
                 onClick={handleAddToCart}
@@ -93,7 +123,21 @@ export default function ProductCard({ product, plan }) {
             </Link>
           </div>
         </div>
-      </Link>
+        {/* تأثير التوهج عند التحويم */}
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.1 }}
+          >
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/30 via-fuchsia-500/30 to-cyan-500/30 animate-gradient blur-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-indigo-500/20 to-purple-500/20 animate-gradient-slow blur-xl" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/20 via-rose-500/20 to-amber-500/20 mix-blend-overlay animate-gradient-slow blur-3xl" />
+            </div>
+          </motion.div>
+        )}
+      </div>
     </motion.div>
   );
 }

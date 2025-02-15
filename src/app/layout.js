@@ -64,10 +64,29 @@ export const metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+    ],
+    other: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" }
+    ]
   },
+  appleWebApp: {
+    title: siteConfig.name,
+    statusBarStyle: "default",
+    capable: true
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  themeColor: "#3B82F6",
   manifest: "/manifest.json",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
@@ -113,7 +132,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="min-h-screen bg-gray-50 flex flex-col">
+      <body className="min-h-screen bg-blue-50 flex flex-col">
         <CartProvider>
         {/* القائمة العلوية */}
         <Navbar />

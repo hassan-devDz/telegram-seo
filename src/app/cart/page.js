@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, getCartTotal } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("credit_card");
@@ -19,6 +20,14 @@ export default function CartPage() {
   const subtotal = getCartTotal();
   const vat = subtotal * 0.15;
   const total = subtotal + vat;
+const router = useRouter();
+
+
+const handleCheckout = () => {
+  // توجيه المستخدم إلى صفحة الدفع
+  router.push("/checkout");
+};
+
 
   const paymentMethods = [
     {
@@ -229,9 +238,12 @@ export default function CartPage() {
               </div>
 
               {/* زر إتمام الطلب */}
-              <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+              <button
+                onClick={handleCheckout}
+                className="w-full py-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+              >
                 <CreditCard className="w-5 h-5" />
-                إتمام الطلب ({total.toFixed(2)} ريال)
+                متابعة الدفع ({total.toFixed(2)} ريال)
               </button>
             </motion.div>
           </div>

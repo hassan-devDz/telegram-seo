@@ -19,39 +19,46 @@ export default function ProductsPage() {
         {/* خدمة التنبيهات */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">خدمة التنبيهات</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {products.notifications.plans.map((plan) => (
-              <ProductCard
-                key={plan.id}
-                product={products.notifications}
-                plan={plan}
-              />
-            ))}
-          </div>
+           <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-6">
+                        {products.notifications.plans.map((plan) => (
+                          <ProductCard
+                            key={plan.id}
+                            product={products.notifications}
+                            plan={plan}
+                            isPopular={plan.duration === 90}
+                          />
+                        ))}
+                      </div>
         </section>
 
         {/* خدمة السلة */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">خدمة السلة</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {products.cart.plans.map((plan) => (
-              <ProductCard key={plan.id} product={products.cart} plan={plan} />
-            ))}
-          </div>
+           <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-6">
+                        {products.cart.plans.map((plan) => (
+                          <ProductCard
+                            key={plan.id}
+                            product={products.cart}
+                            plan={plan}
+                            isPopular={plan.duration === 60}
+                          />
+                        ))}
+                      </div>
         </section>
 
         {/* خدمة الطلب التلقائي */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">خدمة الطلب التلقائي</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {products.autoOrder.plans.map((plan) => (
-              <ProductCard
-                key={plan.id}
-                product={products.autoOrder}
-                plan={plan}
-              />
-            ))}
-          </div>
+         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
+                       {products.autoOrder.plans.map((plan) => (
+                         <ProductCard
+                           key={plan.id}
+                           product={products.autoOrder}
+                           plan={plan}
+                           isPopular={plan.price === 180}
+                         />
+                       ))}
+                     </div>
         </section>
       </div>
     </div>

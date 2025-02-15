@@ -13,19 +13,32 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import ReviewSection from "@/components/ReviewSection";
+import { useCart } from "@/context/CartContext";
 export default function ProductDetails({ product }) {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [addingToCart, setAddingToCart] = useState(false);
+  const { addToCart } = useCart();
 
   const handleAddToCart = async () => {
     if (!selectedPlan) return;
 
     setAddingToCart(true);
-    // محاكاة إضافة للسلة
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // إضافة المنتج للسلة
+    addToCart({
+      id: product.id,
+      planId: selectedPlan.id,
+      name: product.name,
+      planName: selectedPlan.name,
+      price: selectedPlan.price,
+      duration: selectedPlan.duration,
+      orders: selectedPlan.orders,
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
     setAddingToCart(false);
-    // يمكن إضافة التوجيه للسلة هنا
   };
+
 
   return (
     <div className="min-h-screen py-24">
