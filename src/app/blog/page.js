@@ -44,6 +44,18 @@ const blogPosts = [
     views: 645,
     comments: 5,
   },
+  {
+    id: 4,
+    title: "دزرت (DZRT) توقع اتفاقية رعاية رئيسية مع موسم الرياض 2024",
+    slug: "fast-shipping-service-news",
+    excerpt: "تعرف على آخر الأخبار والتحديثات حول خدمة الشحن السريع في دزرت",
+    coverImage: "/blog/auto-order-guide.jpg",
+    category: "أخبار",
+    date: "2 فبراير 2025",
+    readTime: 2,
+    views: 432,
+    comments: 4,
+  },
 ];
 
 export default function BlogPage() {

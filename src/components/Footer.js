@@ -472,7 +472,7 @@ export default function Footer() {
                 className="text-sm text-gray-600 mb-4 md:mb-0"
               >
                 © {new Date().getFullYear()} {siteConfig.name}. جميع الحقوق
-                محفوظة
+                محفوظة شركة حراء للتقنية و البرمجيات
               </motion.div>
               <motion.div
                 className="flex items-center gap-4"
