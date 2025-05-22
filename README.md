@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## وصف المشروع
+
+### متجر FreeDzert
+متجر FreeDzert - بوتات تلغرام للطلب التلقائي.
+
+هذا المشروع هو متجر إلكتروني لبوتات تلغرام مصممة للمساعدة في عمليات الطلب التلقائي، وإرسال الإشعارات، وإدارة عربات التسوق.
+
 ## Getting Started
 
 First, run the development server:
